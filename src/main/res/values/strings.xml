@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">pdm_parcial1_2026</string>
+
+    <!-- Pantalla de Bienvenida -->
+    <string name="bienvenido_titulo">Videojuego de Colores</string>
+    <string name="bienvenido_subtitulo">¡Pon a prueba tus reflejos!</string>
+    <string name="reglas_titulo">Reglas del juego</string>
+    <string name="regla_uno">• Verás un color en pantalla.</string>
+    <string name="regla_dos">• Presiona el botón del color correcto.</string>
+    <string name="regla_tres">• Tienes 30 segundos. Cada acierto suma 1 punto.</string>
+    <string name="boton_iniciar">Iniciar Juego</string>
+
+    <!-- Pantalla de Juego -->
+    <string name="juego_pregunta">¿Qué color es?</string>
+    <string name="juego_tiempo">Tiempo: %1$d s</string>
+    <string name="juego_puntaje">Puntaje: %1$d</string>
+    <string name="juego_correcto">¡Correcto!</string>
+    <string name="juego_incorrecto">¡Incorrecto!</string>
+
+    <!-- Pantalla de Resultado -->
+    <string name="resultado_titulo">¡Juego Terminado!</string>
+    <string name="resultado_tu_puntaje">Tu puntaje: %1$d</string>
+    <string name="resultado_record">Récord: %1$d</string>
+    <string name="resultado_historial">Historial</string>
+    <string name="resultado_partida">Partida #%1$d — %2$d puntos</string>
+    <string name="resultado_jugar_de_nuevo">Jugar de nuevo</string>
+    <string name="resultado_volver_inicio">Volver al inicio</string>
 </resources>

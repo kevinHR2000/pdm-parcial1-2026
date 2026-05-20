@@ -8,14 +8,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-/**
- * ViewModel del juego.
- * Contiene TODA la lógica del juego (MVVM: la UI no decide nada, solo observa).
- *
- * Hereda de ViewModel para:
- *  - Sobrevivir a cambios de configuración (rotar pantalla NO reinicia el juego).
- *  - Tener acceso a viewModelScope, un CoroutineScope que se cancela al destruir
- *    el ViewModel (perfecto para el temporizador: no hay que cancelarlo a mano).
+/*
+  ViewModel del juego.
+  Contiene TODA la lógica del juego (MVVM: la UI no decide nada, solo observa).
+
+  Hereda de ViewModel para:
+   - Sobrevivir a cambios de configuración (rotar pantalla NO reinicia el juego).
+   - Tener acceso a viewModelScope, un CoroutineScope que se cancela al destruir
+     el ViewModel (perfecto para el temporizador: no hay que cancelarlo a mano).
  */
 class GameViewModel : ViewModel() {
 
@@ -46,10 +46,10 @@ class GameViewModel : ViewModel() {
         iniciarTemporizador()
     }
 
-    /**
-     * Temporizador de 30 segundos usando corrutinas.
-     * delay(1000L) suspende la corrutina 1 segundo sin bloquear el hilo principal.
-     * Cuando llega a 0 marca el juego como terminado y la UI navega a Result.
+    /*
+      Temporizador de 30 segundos usando corrutinas.
+      delay(1000L) suspende la corrutina 1 segundo sin bloquear el hilo principal.
+      Cuando llega a 0 marca el juego como terminado y la UI navega a Result.
      */
     private fun iniciarTemporizador() {
         viewModelScope.launch {
@@ -61,11 +61,11 @@ class GameViewModel : ViewModel() {
         }
     }
 
-    /**
-     * Evento desde la UI cuando el usuario presiona uno de los 4 botones.
-     * - Si el juego terminó, ignora.
-     * - Si ya hay feedback mostrándose, ignora (evita spam de clics).
-     * - Suma punto si acierta; muestra feedback durante 500ms; luego avanza.
+    /*
+      Evento desde la UI cuando el usuario presiona uno de los 4 botones.
+      - Si el juego terminó, ignora.
+      - Si ya hay feedback mostrándose, ignora (evita spam de clics).
+      - Suma punto si acierta; muestra feedback durante 500ms; luego avanza.
      */
     fun onColorSeleccionado(seleccionado: GameColor) {
         if (_juegoTerminado.value) return
@@ -85,13 +85,13 @@ class GameViewModel : ViewModel() {
         }
     }
 
-    /** Genera un nuevo color objetivo y 4 nuevas opciones. */
+    // Genera un nuevo color objetivo y 4 nuevas opciones.
     private fun siguienteRonda() {
         _colorActual.value = GameColor.todos.random()
         _opciones.value = generarOpciones(_colorActual.value)
     }
 
-    /** Devuelve 4 opciones: la correcta + 3 incorrectas aleatorias, todas mezcladas. */
+    // Devuelve 4 opciones: la correcta + 3 incorrectas aleatorias, todas mezcladas.
     private fun generarOpciones(correcto: GameColor): List<GameColor> {
         val incorrectos = GameColor.todos
             .filter { it.displayName != correcto.displayName }

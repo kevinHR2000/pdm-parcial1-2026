@@ -40,10 +40,10 @@ import com.example.pdm_parcial1_2026.ui.theme.FeedbackCorrecto
 import com.example.pdm_parcial1_2026.ui.theme.FeedbackIncorrecto
 import com.example.pdm_parcial1_2026.viewmodel.GameViewModel
 
-/**
- * Pantalla principal del juego.
- * Solo se encarga de mostrar el estado y enviar eventos al ViewModel (MVVM).
- * onGameOver es una lambda: la pantalla no decide a dónde navegar, eso lo hace el NavHost.
+/*
+  Pantalla principal del juego.
+  Solo se encarga de mostrar el estado y enviar eventos al ViewModel (MVVM).
+  onGameOver es una lambda: la pantalla no decide a dónde navegar, eso lo hace el NavHost.
  */
 @Composable
 fun GameScreen(

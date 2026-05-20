@@ -6,13 +6,13 @@ import androidx.lifecycle.AndroidViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-/**
- * ViewModel de la pantalla de Resultado.
- * Hereda de AndroidViewModel porque necesita el Context para SharedPreferences.
- *
- * Responsabilidades:
- *  - Leer / actualizar el récord histórico (puntaje más alto).
- *  - Mantener el historial de las últimas 10 partidas (con número de partida).
+/*
+  ViewModel de la pantalla de Resultado.
+  Hereda de AndroidViewModel porque necesita el Context para SharedPreferences.
+
+  Responsabilidades:
+   - Leer / actualizar el récord histórico (puntaje más alto).
+   - Mantener el historial de las últimas 10 partidas (con número de partida).
  */
 class ResultViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -29,11 +29,11 @@ class ResultViewModel(application: Application) : AndroidViewModel(application) 
     private val _historial = MutableStateFlow(cargarHistorial())
     val historial = _historial.asStateFlow()
 
-    /**
-     * Se llama una vez cuando ResultScreen aparece. Guarda la partida actual:
-     *  - Actualiza el récord si el puntaje lo supera.
-     *  - Incrementa el contador de partidas totales.
-     *  - Agrega la partida al historial (máximo 10 entradas, más recientes primero).
+    /*
+      Se llama una vez cuando ResultScreen aparece. Guarda la partida actual:
+       - Actualiza el récord si el puntaje lo supera.
+       - Incrementa el contador de partidas totales.
+       - Agrega la partida al historial (máximo 10 entradas, más recientes primero).
      */
     fun guardarPartida(puntaje: Int) {
         // Actualizar récord si corresponde
@@ -57,9 +57,9 @@ class ResultViewModel(application: Application) : AndroidViewModel(application) 
         _historial.value = nuevoHistorial
     }
 
-    /**
-     * Lee el historial desde SharedPreferences y lo convierte a List<Partida>.
-     * Formato almacenado: "numero|puntaje,numero|puntaje,..."
+    /*
+      Lee el historial desde SharedPreferences y lo convierte a List<Partida>.
+      Formato almacenado: "numero|puntaje,numero|puntaje,..."
      */
     private fun cargarHistorial(): List<Partida> {
         val raw = prefs.getString("historial", "") ?: ""

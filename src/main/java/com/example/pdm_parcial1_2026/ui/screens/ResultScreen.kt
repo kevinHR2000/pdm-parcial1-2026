@@ -29,9 +29,9 @@ import com.example.pdm_parcial1_2026.R
 import com.example.pdm_parcial1_2026.viewmodel.ResultViewModel
 
 /**
- * Pantalla final con puntaje, récord histórico y LazyColumn del historial.
- * Recibe el puntaje desde la navegación (NavHost lo pasa como argumento).
- * Las acciones de navegación se reciben como lambdas (UI desacoplada).
+  Pantalla final con puntaje, récord histórico y LazyColumn del historial.
+ Recibe el puntaje desde la navegación (NavHost lo pasa como argumento).
+  Las acciones de navegación se reciben como lambdas (UI desacoplada).
  */
 @Composable
 fun ResultScreen(
